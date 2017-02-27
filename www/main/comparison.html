@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>球队比较</title>
+        <style>
+			* {
+				margin:0;
+				padding:0;
+			}
+			body {
+				font-family: "Microsoft YaHei", "Simsun,sans-self";
+				background-color: pink;
+			}
+			header{
+				font-size: 30px;
+				text-align: center;
+				padding: 20px 0;
+			}
+			.wrapper {
+				overflow: hidden;
+				clear: both;
+				width: 40%;
+				margin:0 auto;
+
+			}
+			table tr td:first-child {
+            	text-align: right;
+        	}
+        	table tr {
+        		height: 30px;
+        	}
+        	td.red{
+        		color: red;
+        	}
+        	td.yellow{
+        		color: blue;
+        	}
+        	.wrapper h3{
+				text-align: center;
+        	}
+        	#team_one,#team_two {
+        		float: left;
+        		width: 30%;
+        		box-sizing:border-box;
+        	}
+        	#team_one {
+        		margin-right:40%;
+
+        	}
+        	.bring li,.title_xz {
+        		list-style: none;
+        		text-indent: 50px;
+        		font-size: 15px;
+        		color:#fff;
+        	}
+
+
+        </style>
+
+    </head>
+    <body>
+    	<header>真实统计球队各项数据对比</header>
+    	<section class="wrapper">
+    		<div id="team_one">
+    			<h3>球队</h3>
+    			<table>
+    				<thead>
+    					<tr>
+	    					<th>数据项</th>
+	    					<th>数据值</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>排名:</td>
+    						<td>1</td>
+    					</tr>
+    					<tr>
+    						<td>胜:</td>
+    						<td>15</td>
+    					</tr>
+    					<tr>
+    						<td>负:</td>
+    						<td>5</td>
+    					</tr>
+    					<tr>
+    						<td>胜率:</td>
+    						<td>75%</td>
+    					</tr>
+    					<tr>
+    						<td>胜差:</td>
+    						<td>0</td>
+    					</tr>
+    					<tr>
+    						<td>场均得分:</td>
+    						<td>111.1</td>
+    					</tr>
+    					<tr>
+    						<td>场均失分:</td>
+    						<td>104.5</td>
+    					</tr>
+    					<tr>
+    						<td>分差:</td>
+    						<td>6.6</td>
+    					</tr>
+    					<tr>
+    						<td>主场战绩:</td>
+    						<td>9胜2负</td>
+    					</tr>
+    					<tr>
+    						<td>客场战绩:</td>
+    						<td>6胜3负</td>
+    					</tr>
+    					<tr>
+    						<td>分部战绩:</td>
+    						<td>12胜4负</td>
+    					</tr>
+    					<tr>
+    						<td>分区战绩:</td>
+    						<td>1胜3负</td>
+    					</tr>
+    					<tr>
+    						<td>最近10场:</td>
+    						<td>6胜4负</td>
+    					</tr>
+    					<tr>
+    						<td>连胜连负:</td>
+    						<td>2连胜</td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    		<div id="team_two">
+    			<h3>球队</h3>
+    			<table>
+    				<thead>
+    					<tr>
+	    					<th>数据值</th>
+	    					<th>数据项</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td>1</td>
+    						<td>排名:</td>
+    					</tr>
+    					<tr>
+    						<td>15</td>
+    						<td>:胜</td>
+    					</tr>
+    					<tr>
+    						<td>5</td>
+    						<td>:负</td>
+    					</tr>
+    					<tr>
+    						<td>75%</td>
+    						<td>:胜率</td>
+    					</tr>
+    					<tr>
+    						<td>0</td>
+    						<td>:胜差</td>
+    					</tr>
+    					<tr>
+    						<td>111.1</td>
+    						<td>:场均得分</td>
+    					</tr>
+    					<tr>
+    					
+    						<td>104.5</td>
+    						<td>:场均失分</td>
+    					</tr>
+    					<tr>
+    						<td>6.6</td>
+    						<td>:分差</td>
+    					</tr>
+    					<tr>
+    						<td>9胜2负</td>
+    						<td>:主场战绩</td>
+    					</tr>
+    					<tr>
+    						<td>6胜3负</td>
+    						<td>:客场战绩</td>
+    					</tr>
+    					<tr>
+    						<td>12胜4负</td>
+    						<td>:分部战绩</td>
+    					</tr>
+    					<tr>
+    						
+    						<td>1胜3负</td>
+    						<td>分区战绩</td>
+    					</tr>
+    					<tr>
+    						<td>6胜4负</td>
+    						<td>:最近10场</td>
+    					</tr>
+    					<tr>
+    						<td>2连胜</td>
+    						<td>:连胜连负</td>
+    					</tr>
+    				</tbody>    				
+    			</table>
+    		</div>
+    		<span class="title_xz">小注：</span>
+    		<ul class="bring">
+    			<li><span>1.红色代表优势项</span></li>
+    			<li><span>2.蓝色代表持平项</span></li>
+    		</ul>
+    	</section>
+    </body>
+     <script src="./js/jquery.js"></script>
+    <script>
+    	$(function(){
+    		console.log("dijasdias");
+    		getUrl();
+    		ajaxtxt(getTeamData);
+    		
+    	})
+
+    	function ajaxtxt(callback){
+    		$.ajax({
+				url: "/main/data.txt",//地址，就是action请求路径
+				success: function(data){//返回的参数就是 action里面所有的有get和set方法的参数
+				    //console.log(data);
+					callback(JSON.parse(data));
+				    advantageTd();
+				}
+			}); 
+    	}
+
+    	function getUrl(){
+    		var search = decodeURI(window.location.search).slice(1);
+	    	var sarr=search.split("&");
+	    	var team_obj = {};
+	    	for(var i=0;i<sarr.length;i++){
+	    		var team_arr = sarr[i].split('=');
+	    		team_obj[team_arr[0]] = team_arr[1];
+	    	}
+	    	console.log(team_obj);
+	    	return team_obj;
+    	}
+
+    	function getTeamData(data){
+    		//获取当前要检测的球队
+    		var team_obj= getUrl(),
+    			team1=team_obj.name1,
+    			team2=team_obj.name2;
+    		    data =data,
+    			team1_data = data[team1],
+    		    team2_data = data[team2];
+    		
+    		var len1 = team1_data.length;
+    		var len2 = team2_data.length;
+
+    		var td1_arr =$("#team_one tr td:odd"),
+    			td2_arr =$("#team_two tr td:even");
+  			
+  			$("#team_one h3").text(team1);
+  			$("#team_two h3").text(team2);
+    		for(var j=0;j<len1;j++){
+    			td1_arr.eq(j).text(team1_data[j]);
+    		}	
+    		
+    		for(var j=0;j<len2;j++){
+    			td2_arr.eq(j).text(team2_data[j]);
+    		}	
+    			
+    	}
+
+    	function advantageTd(){   
+    		var td1_arr =$("#team_one tr td:odd"),
+    			td2_arr =$("#team_two tr td:even"),
+    			len = td1_arr.length;
+    			td1_arr.removeClass("red yellow");
+    			td2_arr.removeClass("red yellow");
+    			for(var i=0;i<len;i++){
+    				if(i<8){
+    					if(i==3){
+    						var td1_nu3 = td1_arr.eq(i).text();
+	    					var td2_nu3 = td2_arr.eq(i).text();
+	    					console.log(td2_nu+Boolean(td1_nu3 > td2_nu3))
+	    					td1_nu3 == td2_nu3 ? td2_arr.eq(i).addClass("yellow") && td1_arr.eq(i).addClass("yellow"):(td1_nu3 >td2_nu3 ? td1_arr.eq(i).addClass('red'):td2_arr.eq(i).addClass('red'));
+	    						
+    					}else{
+
+    						var td1_nu = td1_arr.eq(i).text()-0;
+		    				var td2_nu = td2_arr.eq(i).text()-0;
+	    					if(i%2==0){
+	    						if(td1_nu == td2_nu){
+	    							td2_arr.eq(i).addClass("yellow");
+	    							td1_arr.eq(i).addClass("yellow");
+	    						}else{
+	    							td1_nu > td2_nu ? td2_arr.eq(i).addClass('red'):td1_arr.eq(i).addClass('red');
+	    						}
+		    					
+	    					}else {
+	    						
+	    					td1_nu == td2_nu ? td2_arr.eq(i).addClass("yellow") && td1_arr.eq(i).addClass("yellow"):(td1_nu > td2_nu ? td1_arr.eq(i).addClass('red'):td2_arr.eq(i).addClass('red'));
+	    					}
+	    				}		
+    				}else if(i<13){
+    					var td1_index = td1_arr.eq(i).text().indexOf("胜");
+    					var td2_index = td2_arr.eq(i).text().indexOf("胜");
+
+    					var td1f_index = td1_arr.eq(i).text().indexOf("负");
+    					var td2f_index = td2_arr.eq(i).text().indexOf("负");
+    					
+    					var td1_nu = td1_arr.eq(i).text().slice(0, td1_index)-0;
+		    			var td2_nu = td2_arr.eq(i).text().slice(0, td2_index)-0;
+
+
+		    			if(td1_nu==td2_nu){
+		    				var td1_bai = td1_arr.eq(i).text().slice(td1_index+1, td1f_index)-0;
+		    				var td2_bai = td2_arr.eq(i).text().slice(td2_index+1, td2f_index)-0;
+
+		    				console.log(td1_bai+":dd"+td2_bai);
+
+		    				td1_bai == td2_bai ? td1_arr.eq(i).addClass('yellow')&& td2_arr.eq(i).addClass('yellow'):(td1_bai > td2_bai ? td2_arr.eq(i).addClass('red'):td1_arr.eq(i).addClass('red'));
+		    			}else{
+		    				
+		    				td1_nu > td2_nu ? td1_arr.eq(i).addClass('red'):td2_arr.eq(i).addClass('red');
+		    			}
+    					
+    				}else{
+
+    					var td1_nu = td1_arr.eq(i).text().slice(0, 1)-0,
+		    			    td2_nu = td2_arr.eq(i).text().slice(0, 1)-0,
+
+		    			    td1_text = td1_arr.eq(i).text().slice(2, 3),
+		    			    td2_text = td2_arr.eq(i).text().slice(2, 3);
+
+		    			    if(td1_text=="胜" && td2_text=="负"){
+		    			    	td1_arr.eq(i).addClass('red');
+
+		    			    }else if(td2_text=="胜" && td1_text=="负"){
+		    			    	td2_arr.eq(i).addClass('red')	
+		    			    }else{
+		    			    	if(td1_text == "胜"){
+		    			    		td1_nu == td2_nu ? td2_arr.eq(i).addClass("yellow") && td1_arr.eq(i).addClass("yellow"):(td1_nu > td2_nu ? td1_arr.eq(i).addClass('red'):td2_arr.eq(i).addClass('red'));
+	    					
+		    		
+		    			    	}else if(td1_text == "负"){
+
+		    			    		td1_nu > td2_nu ? td2_arr.eq(i).addClass('red'):td1_arr.eq(i).addClass('red');
+
+		    			    		td1_nu == td2_nu ? td2_arr.eq(i).addClass("yellow") && td1_arr.eq(i).addClass("yellow"):(td1_nu > td2_nu ? td2_arr.eq(i).addClass('red'):td1_arr.eq(i).addClass('red'));	
+
+		    			    	}
+		    			    	
+		    			    }
+
+
+
+    				}
+    			}
+    	}
+    	
+
+ 
+			
+
+    </script>
+</html>

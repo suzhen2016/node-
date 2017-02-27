@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NBA-我的数据</title>
+        <link rel="stylesheet" href="../css/index.css">
+    </head>
+    <body>
+    	<div>
+    		<form action="http://127.0.0.1:9000/process_get" method="GET" target="_blank" class="my-form">
+	    		<h3>请输入所要查看的NBA球队名称:</h3>
+		        <div class="form-group">
+		            <label class="col-sm-3 control-label">球队1:</label>
+		            <input type="text" name="name1" class="form-control" placeholder="请输入所要查询的球队">
+		            <span class="bz hidden">未填写</span>
+		        </div>
+		        <div class="form-group">
+		            <label class="col-sm-3 control-label">球队2:</label>
+		            <input type="text" name="name2" class="form-control" placeholder="请输入所要查询的球队" >
+					<span class="bz hidden">未填写</span>
+		        </div>
+		        <div class="form-group">
+		           <button type="button" class="btn-prime">查询</button>
+		        </div>
+    		</form>
+    	</div>
+    </body>
+    <script src="../js/jquery.js"></script>
+    <script>
+    
+    	$(function(){
+    		$("button").click(initSubmit);
+    	})
+
+    	function initSubmit(event) {
+    		var form = $(this).closest('form');
+    		var objVal = getFormValue(form);
+
+    		for(var k in objVal){
+
+    			var inp =form.find('input[name='+k+']');
+
+    			if(objVal[k]==""){
+    				
+    				inp.focus();
+
+    				inp.next("span").removeClass("hidden");
+
+    				return false;
+
+    			}else{
+    				var falg = getIsTeam(objVal[k]);
+
+    				if(!falg){
+
+    					inp.focus();
+
+	    				inp.next("span").removeClass("hidden").text("不存在该球队！");
+
+	    				return false;
+    				}else{
+    					inp.next("span").text("未填写")
+    				}
+
+    				inp.next("span").addClass("hidden");
+
+    			}
+    		}
+
+
+    		form.submit();
+    	}
+
+    	function getIsTeam(team){
+    		var arr = [ '骑士','猛龙','凯尔特人','黄蜂','尼克斯','步行者','公牛','老鹰','雄鹿','奇才','活塞','魔术',
+  			'热火','篮网','76人','勇士','马刺','火箭','快船','灰熊','爵士','雷霆','开拓者','国王','掘金','湖人','鹈鹕','森林狼','小牛','太阳' ];
+  			var index = arr.indexOf(team);
+  			if(index=="-1")	{
+  				return false;
+  			}else{
+  				return true;
+  			}
+    	}
+
+    	function getFormValue(dom){
+
+	        var dataVal = dom.serialize();
+
+	        dataVal= decodeURIComponent(dataVal,true);
+
+	        console.log(dataVal);
+
+	        var objJson = JSON.parse(getArr(dataVal));
+
+	        console.log(objJson);
+
+	        return objJson;
+    	}
+
+	    function getArr(data){
+
+	        var str;
+	        if(!data){
+	            return false;
+	        }else{
+	            str = data;
+	        }
+
+	        var arr = str.split("&"),
+	                arr1= [] ;
+	        var obj = {};
+
+	        for(var i=0;i<arr.length;i++){
+
+	            arr1 = arr[i].split("=");
+
+	            if(arr1[0]=="tr1"){
+
+	            }
+	            obj[arr1[0]] = arr1[1];
+	        }
+	        objJson = JSON.stringify(obj);
+	        
+	        return objJson
+	    }
+    </script>
+</html>
